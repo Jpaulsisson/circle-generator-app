@@ -31,34 +31,39 @@ function App() {
   }
 
   const handleThemeChange = (e) => {
-    let newTheme = e.target.value;
+    const newTheme = e.target.value;
+    const generateRandomValue = () => Math.floor(Math.random() * 16).toString(16);
+    const firstRandomHex = '#' + Array.from({ length: 6}).map(generateRandomValue).join('');
+    const secondRandomHex = '#' + Array.from({ length: 6}).map(generateRandomValue).join('');
+
     switch(newTheme) {
       case 'neon':
         setTheme({
-          color: 'greenyellow',
-          backgroundColor: 'black',
-          borderColor: 'greenyellow',
+          color: 'var(--primaryClrDefault)',
+          backgroundColor: 'var(--backgroundClrDefault)',
         });
         break;
       case 'light':
         setTheme({
-          color: 'rgb(0, 189, 227)',
-          backgroundColor: 'rgb(226, 217, 199)',
-          borderColor: 'rgb(0, 189, 227)',
+          color: 'var(--primaryClrLight)',
+          backgroundColor: 'var(--backgroundClrLight)',
         });
         break;
       case 'mellow':
         setTheme({
-          color: 'rgb(203, 203, 152)',
-          backgroundColor: 'rgb(72, 100, 66)',
-          borderColor: 'rgb(203, 203, 152)',
-        })
+          color: 'var(--primaryClrMellow)',
+          backgroundColor: 'var(--backgroundClrMellow)',
+        });
+        break;
+      case 'random':
+        setTheme({
+          color: `${firstRandomHex}`,
+          backgroundColor: `${secondRandomHex}`,
+        });
+        break;
+        default: alert('something is wrong... maybe try hitting refresh')
     }
   }
-
-  // const sliderChange = (e) => {
-  //   e.target.value;
-  // }
 
   return (
     <div className='App' style={theme} >
@@ -67,13 +72,13 @@ function App() {
           <button
             disabled={circles.length === 0}
             onClick={handleUndo}
-            className="buttons"
+            className="buttons-action"
           >
             undo
           </button>
           <button
             disabled={removedCircles.length === 0}
-            className="buttons"
+            className="buttons-action"
             onClick={handleRedo}
           >
             redo
@@ -81,7 +86,7 @@ function App() {
           <button 
           disabled={circles.length === 0}
           onClick={handleErase}
-          className='buttons'
+          className='buttons-action'
           >erase
           </button>
         </div>
@@ -91,7 +96,7 @@ function App() {
           <button
             disabled={theme.color === 'greenyellow'}
             onClick={handleThemeChange}
-            className="buttons"
+            className="buttons-theme"
             value='neon'
           >
             Neon
@@ -99,7 +104,7 @@ function App() {
           <button
             disabled={theme.color === 'rgb(0, 189, 227)'}
             onClick={handleThemeChange}
-            className="buttons"
+            className="buttons-theme"
             value='light'
           >
             Light
@@ -107,9 +112,15 @@ function App() {
           <button 
           disabled={theme.color === 'rgb(203, 203, 152)'}
           onClick={handleThemeChange}
-          className='buttons'
+          className='buttons-theme'
           value='mellow'
           >Mellow
+          </button>
+          <button
+          onClick={handleThemeChange}
+          className='buttons-theme'
+          value='random'
+          >Random
           </button>
         </div>
       </div>

@@ -20,7 +20,6 @@
 .App {
   color: greenyellow;
   background-color: black;
-  border-color: greenyellow;
 }
 
 /* .title-and-slider {
@@ -79,9 +78,21 @@
   background-color: inherit;
 }
 
-.buttons {
+.buttons-action {
   height: 50px;
   width: 120px;
+  margin-inline: 8px;
+  border: 5px solid;
+  border-radius: 10px;
+  font-size: 2em;
+  font-family: 'Dongle', sans-serif;
+  background-color: inherit;
+  color: inherit;
+  box-shadow: 0px 0px 40px;
+}
+.buttons-theme {
+  height: 50px;
+  width: 90px;
   margin-inline: 8px;
   border: 5px solid;
   border-radius: 10px;
