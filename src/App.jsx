@@ -26,8 +26,8 @@ function App() {
   };
 
   const handleErase = () => {
-    setCircles([]);
     setRemovedCircles([]);
+    setCircles([]);
   }
 
   const handleThemeChange = (e) => {
@@ -65,26 +65,29 @@ function App() {
     }
   }
 
+  const disableUndo = circles.length === 0 ? true : false;
+  const disableRedo = removedCircles.length === 0 ? true : false;
+
   return (
     <div className='App' style={theme} >
       <div className='button-bar'>
         <div className='action-buttons'>
           <button
-            disabled={circles.length === 0}
+            disabled={disableUndo}
             onClick={handleUndo}
             className="buttons-action"
           >
             undo
           </button>
           <button
-            disabled={removedCircles.length === 0}
+            disabled={disableRedo}
             className="buttons-action"
             onClick={handleRedo}
           >
             redo
           </button>
           <button 
-          disabled={circles.length === 0}
+          disabled={disableUndo}
           onClick={handleErase}
           className='buttons-action'
           >erase

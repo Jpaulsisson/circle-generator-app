@@ -2,11 +2,11 @@
   --primaryClrDefault: greenyellow;
   --backgroundClrDefault: black;
 
-  --primaryClrLight: rgb(0, 189, 227);
-  --backgroundClrLight: rgb(226, 217, 199);
+  --primaryClrLight: hsl(190, 100%, 45%);
+  --backgroundClrLight: hsl(40, 32%, 83%);
 
-  --primaryClrMellow: rgb(203, 203, 152);
-  --backgroundClrMellow: rgb(72, 100, 66);
+  --primaryClrMellow: hsl(60, 33%, 70%);
+  --backgroundClrMellow: hsl(109, 20%, 33%);
 }
 
 *,
@@ -18,22 +18,14 @@
 }
 
 .App {
-  color: greenyellow;
-  background-color: black;
+  color: var(--primaryClrMellow);
+  background-color: var(--backgroundClrMellow);
 }
-
-/* .title-and-slider {
-  height: 50px;
-  width: 40%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 8fr 1fr;
-} */
 
 .title {
   padding-inline: 50px;
   margin-inline: 1px;
-  font-size: 1.5em;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
   font-family: 'Dongle', sans-serif;
   letter-spacing: 2px;
   grid-row-start: 1;
@@ -41,30 +33,6 @@
   justify-self: center;
   align-self: center;
 }
-/* 
-.small-example {
-  height: 10px;
-  width: 10px;
-  border: 2px solid;
-  box-shadow: 0 0 20px;
-  border-radius: 50%;
-  grid-row-start: 2;
-  grid-column: 1;
-  justify-self: end;
-  align-self: center;
-} */
-
-/* .big-example {
-  height: 50px;
-  width: 50px;
-  border: 2px solid;
-  box-shadow: 0 0 20px;
-  border-radius: 50%;
-  grid-row: 1 span 2;
-  grid-column: -1;
-  justify-self: end;
-  align-self: start;
-} */
 
 .button-bar {
   display: flex;
@@ -103,8 +71,8 @@
   box-shadow: 0px 0px 40px;
 }
 
-.buttons:disabled {
-  filter:brightness(40%);
+button:disabled {
+  filter: brightness(20%);
 }
 
 .circle {

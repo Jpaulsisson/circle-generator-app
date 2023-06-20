@@ -29,26 +29,3 @@ export const ThemeContext = createContext({
   });
 
   
-
-//   case 'light':
-//     setTheme({
-//       ,
-//     });
-//     break;
-//   case 'mellow':
-//     setTheme({
-//       color: 'var(--primaryClrMellow)',
-//       backgroundColor: 'var(--backgroundClrMellow)',
-//       borderColor: 'var(--primaryClrMellow)',
-//     });
-//     break;
-//   case 'random':
-//     setTheme({
-//       color: `${firstRandomHex}`,
-//       backgroundColor: `${secondRandomHex}`,
-//       borderColor: `${thirdRandomHex}`,
-//     });
-//     break;
-//     default: alert('something is wrong... maybe try hitting refresh')
-// }
-// );
